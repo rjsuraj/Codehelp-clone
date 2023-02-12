@@ -12,13 +12,32 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;500;600;700;800;900&display=swap"
         rel="stylesheet">
+    
+    <style>
+        .icon{
+            animation: upDown 4s infinite linear;
+        }
+
+        @keyframes upDown {
+            0%{
+                transform: translateY(-3%);
+            }
+            50%{
+                transform: translateY(3%);
+            }
+            100%{
+                transform: translateY(-3%);
+            }
+            
+        }
+    </style>
 </head>
 
 <body>
 
-    <header class="bg-transparent fixed top-0 left-0 right-0 shadow-lg backdrop-blur-lg">
+    <header class="z-10 bg-transparent fixed top-0 left-0 right-0 shadow-lg backdrop-blur-lg">
         <!-- nav bar -->
-        <div class="flex justify-between items-center py-5 px-3 max-w-[1300px]
+        <div class="flex justify-between items-center py-5 px-3 max-w-[1380px]
         mx-auto lg:px-6 lg:py-6">
             <!-- nav logo -->   
             <img class="" src="./assets/logo.svg" alt="">
@@ -61,34 +80,44 @@
     
 
     <!-- hero section -->
-    <section class="bg-[url(./assets/backgroundGradient.svg)]  bg-no-repeat  bg-center bg-cover h-screen">
+    <section class="gradient bg-[url(./assets/backgroundGradient.svg)]  bg-no-repeat  bg-center bg-cover h-screen">
         
-        <div class="py-5 px-3 max-w-[1300px] mx-auto lg:px-6 lg:pt-[10rem]
-        flex flex-col lg:flex-row-reverse lg:items-center lg:justify-around">
+        <div class="py-5 px-3 max-w-[1380px] mx-auto lg:px-6 lg:pt-[10rem]
+        flex flex-col lg:flex-row-reverse lg:items-center lg:justify-around
+        xl:justify-between">
 
             <!-- image part -->
-            <div class="pt-[16rem] lg:p-0 lg:w-[37%]">              
-                <img class="max-[1024px]:w-[90%] mx-auto" src="./assets/asset 12.png" alt="">
+            <div class="pt-[16rem] lg:p-0 lg:w-[40vw] xl:w-[43vw] relative">              
+                <img class="xl:hidden max-[1024px]:w-[90%] mx-auto" src="./assets/asset 12.png" alt="">
+
+                <div class="hidden xl:block">
+
+                    <img class="w-full" src="./assets/human.svg" alt="">
+                    <img class="icon absolute -top-[10%] left-[40%]" src="./assets/asset 9.png" alt="">
+                    <img class="icon absolute bottom-[120px] right-[120px]" src="./assets/asset 10.png" alt="">
+                    <img class="icon absolute bottom-[90px] left-[100px]" src="./assets/asset 11.png" alt="">
+                </div>
             </div>
 
             <!-- text part -->
             <div class="mt-[5rem] flex flex-col gap-6 mx-auto lg:w-[50%]
-            lg:m-0">
+            lg:m-0 xl:mt-[3.5rem]">
 
-                <h2 class="text-3xl font-Rubik font-[600] lg:text-[35px]">
+                <h2 class="text-3xl font-Rubik font-[600] lg:text-[35px]
+                  xl:text-[57px]">
                     <span class="text-lightBlue">Learn</span>
-                    With L
+                    <span>with L</span>
                     <span class="role"></span>
                 </h2>
 
-                <p class="text-xl lg:text-[25px] leading-[1.8rem] font-Rubik font-[400]  opacity-80 w-[70%]">The Ultimate Guide To Ace SDE Interviews.</p>
+                <p class="text-xl lg:text-[25px] xl:text-[37px] xl:mt-3 xl:leading-10 leading-[1.8rem] font-Rubik font-[400]  opacity-80 w-[70%]">The Ultimate Guide To Ace SDE Interviews.</p>
 
                 <div class="flex gap-3">            
-                    <button class="py-2 px-8 text-white bg-lightBlue rounded-lg font-Rubik font-[400]">
+                    <button class="py-2 px-8 text-white bg-lightBlue rounded-lg font-Rubik font-[400] xl:text-xl xl:py-4">
                         View Courses
                     </button>
 
-                    <button class="py-2 px-8 border-[1px] border-lightBlue rounded-lg font-Rubik font-[400]">Watch Video</button>
+                    <button class="py-2 px-8 border-[1px] border-lightBlue rounded-lg font-Rubik font-[400] xl:text-xl xl:py-4">Watch Video</button>
                 </div>
 
                 <div class="mt-5 flex gap-10 items-center">
