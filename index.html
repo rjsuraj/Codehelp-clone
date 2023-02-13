@@ -12,82 +12,130 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;500;600;700;800;900&display=swap"
         rel="stylesheet">
-    
+
     <style>
-        .icon{
+        .icon {
             animation: upDown 4s infinite linear;
         }
 
         @keyframes upDown {
-            0%{
+            0% {
                 transform: translateY(-3%);
             }
-            50%{
+
+            50% {
                 transform: translateY(3%);
             }
-            100%{
+
+            100% {
                 transform: translateY(-3%);
             }
-            
+
+        }
+
+        header::before {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            backdrop-filter: blur(20px);
+            z-index: -1;
+        }
+
+        .active{
+            left: 0%;
         }
     </style>
 </head>
 
 <body>
 
-    <header class="z-10 bg-transparent fixed top-0 left-0 right-0 shadow-lg backdrop-blur-lg">
+    <header class="z-10 bg-transparent fixed top-0 left-0 right-0 shadow-lg">
         <!-- nav bar -->
         <div class="flex justify-between items-center py-5 px-3 max-w-[1380px]
         mx-auto lg:px-6 lg:py-6">
-            <!-- nav logo -->   
+            <!-- nav logo -->
             <img class="" src="./assets/logo.svg" alt="">
-            
-            
+
+
             <!-- nav items -->
-            <ul class="hidden lg:flex gap-8 items-center">
-                <li class="font-Rubik font-[400] text-lg"><a href="#">About Us</a></li>
-                <li class="font-Rubik font-[400] text-lg"><a href="#">Courses</a></li>
-                <li class="font-Rubik font-[400] text-lg"><a href="#">Labs</a></li>
-                <li class="font-Rubik font-[400] text-lg"><a href="#">Contacts</a></li>
+            <ul class="max-lg:absolute max-lg:top-[100%] max-lg:left-[-100%] max-lg:w-full max-lg:py-[4rem] max-lg:bg-[#ffffff31] max-lg:backdrop-blur-lg flex flex-col lg:flex-row max-lg:gap-6 gap-8  items-center transition-all duration-[2s]" id="menu" >
+
+                <li class="font-Rubik font-[400] text-xl"><a href="#">About Us</a></li>
+                <li class="font-Rubik font-[400] text-xl"><a href="#">Courses</a></li>
+                <li class="font-Rubik font-[400] text-xl"><a href="#">Labs</a></li>
+                <li class="font-Rubik font-[400] text-xl"><a href="#">Contacts</a></li>
+                <button
+                    class="lg:hidden py-2 px-8 border-[1px] bg-white rounded-lg font-Rubik font-[500] ">Dashboard
+                </button>
+
+                <button
+                    class="lg:hidden flex items-center py-2 px-10 text-white bg-lightBlue rounded-lg font-Rubik font-[500] ">
+
+                    <span>Login</span>
+
+                    <svg stroke="currentColor" fill="none" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round"
+                        stroke-linejoin="round" class="ml-2 text-xl" height="1em" width="1em"
+                        xmlns="http://www.w3.org/2000/svg">
+                        <path d="M15 3h4a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-4"></path>
+                        <polyline points="10 17 15 12 10 7"></polyline>
+                        <line x1="15" y1="12" x2="3" y2="12"></line>
+                    </svg>
+                </button>
+
             </ul>
 
 
             <!-- icons and buttons-->
             <div class="flex gap-3 items-center">
 
-                <button class="hidden lg:block py-2 px-8 border-[1px] border-lightBlue rounded-lg font-Rubik font-[400] lg:text-lg">Dashboard</button>
-                
-                <button class="hidden lg:flex items-center py-2 px-10 text-white bg-lightBlue rounded-lg font-Rubik font-[400] lg:text-lg">
+                <button
+                    class="hidden lg:block py-2 px-8 border-[1px] border-lightBlue rounded-lg font-Rubik font-[400] lg:text-lg">Dashboard</button>
+
+                <button
+                    class="hidden lg:flex items-center py-2 px-10 text-white bg-lightBlue rounded-lg font-Rubik font-[400] lg:text-lg">
 
                     <span>Login</span>
 
-                    <svg stroke="currentColor" fill="none" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" class="ml-2 text-xl" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M15 3h4a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-4"></path><polyline points="10 17 15 12 10 7"></polyline><line x1="15" y1="12" x2="3" y2="12"></line></svg>
+                    <svg stroke="currentColor" fill="none" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round"
+                        stroke-linejoin="round" class="ml-2 text-xl" height="1em" width="1em"
+                        xmlns="http://www.w3.org/2000/svg">
+                        <path d="M15 3h4a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-4"></path>
+                        <polyline points="10 17 15 12 10 7"></polyline>
+                        <line x1="15" y1="12" x2="3" y2="12"></line>
+                    </svg>
                 </button>
-                
 
-                <div class="flex flex-col gap-2 items-end cursor-pointer lg:hidden">
+
+                <div class="flex flex-col gap-2 items-end cursor-pointer lg:hidden" id="toogleBtn">
                     <div class="w-[2.6rem] h-[0.3rem] bg-black rounded-full"></div>
                     <div class="w-[2.1rem] h-[0.3rem] bg-black rounded-full"></div>
                     <div class="w-[1.4rem] h-[0.3rem] bg-black rounded-full"></div>
                 </div>
-                
-                <svg stroke="currentColor" fill="#6674CC" stroke-width="0" viewBox="0 0 24 24" font-size="32" cursor="pointer" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg" class="text-[35px]"><path fill="none" d="M0 0h24v24H0z"></path><path d="M9.37 5.51A7.35 7.35 0 009.1 7.5c0 4.08 3.32 7.4 7.4 7.4.68 0 1.35-.09 1.99-.27A7.014 7.014 0 0112 19c-3.86 0-7-3.14-7-7 0-2.93 1.81-5.45 4.37-6.49zM12 3a9 9 0 109 9c0-.46-.04-.92-.1-1.36a5.389 5.389 0 01-4.4 2.26 5.403 5.403 0 01-3.14-9.8c-.44-.06-.9-.1-1.36-.1z"></path></svg>
+
+                <svg stroke="currentColor" fill="#6674CC" stroke-width="0" viewBox="0 0 24 24" font-size="32"
+                    cursor="pointer" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg" class="text-[35px]">
+                    <path fill="none" d="M0 0h24v24H0z"></path>
+                    <path
+                        d="M9.37 5.51A7.35 7.35 0 009.1 7.5c0 4.08 3.32 7.4 7.4 7.4.68 0 1.35-.09 1.99-.27A7.014 7.014 0 0112 19c-3.86 0-7-3.14-7-7 0-2.93 1.81-5.45 4.37-6.49zM12 3a9 9 0 109 9c0-.46-.04-.92-.1-1.36a5.389 5.389 0 01-4.4 2.26 5.403 5.403 0 01-3.14-9.8c-.44-.06-.9-.1-1.36-.1z">
+                    </path>
+                </svg>
             </div>
-    
+
         </div>
 
     </header>
-    
+
 
     <!-- hero section -->
     <section class="gradient bg-[url(./assets/backgroundGradient.svg)]  bg-no-repeat  bg-center bg-cover h-screen">
-        
+
         <div class="py-5 px-3 max-w-[1380px] mx-auto lg:px-6 lg:pt-[10rem]
         flex flex-col lg:flex-row-reverse lg:items-center lg:justify-around
         xl:justify-between">
 
             <!-- image part -->
-            <div class="pt-[16rem] lg:p-0 lg:w-[40vw] xl:w-[43vw] relative">              
+            <div class="pt-[13rem] lg:p-0 lg:w-[40vw] xl:w-[43vw] relative">
                 <img class="xl:hidden max-[1024px]:w-[90%] mx-auto" src="./assets/asset 12.png" alt="">
 
                 <div class="hidden xl:block">
@@ -103,24 +151,29 @@
             <div class="mt-[5rem] flex flex-col gap-6 mx-auto lg:w-[50%]
             lg:m-0 xl:mt-[3.5rem]">
 
-                <h2 class="text-3xl font-Rubik font-[600] lg:text-[35px]
+                <h2 class="text-3xl max-sm:mx-auto  font-Rubik font-[600] lg:text-[35px]
                   xl:text-[57px]">
                     <span class="text-lightBlue">Learn</span>
-                    <span>with L</span>
+                    <span>with</span>
                     <span class="role"></span>
                 </h2>
 
-                <p class="text-xl lg:text-[25px] xl:text-[37px] xl:mt-3 xl:leading-10 leading-[1.8rem] font-Rubik font-[400]  opacity-80 w-[70%]">The Ultimate Guide To Ace SDE Interviews.</p>
+                <p
+                    class="text-xl max-sm:mx-auto max-sm:text-center lg:text-[25px] xl:text-[37px] xl:mt-3 xl:leading-10 leading-[1.8rem] font-Rubik font-[400]  opacity-80 w-[70%]">
+                    The Ultimate Guide To Ace SDE Interviews.</p>
 
-                <div class="flex gap-3">            
-                    <button class="py-2 px-8 text-white bg-lightBlue rounded-lg font-Rubik font-[400] xl:text-xl xl:py-4">
+                <div class="flex gap-3 max-sm:mx-auto ">
+                    <button
+                        class="py-2 px-8 text-white bg-lightBlue rounded-lg font-Rubik font-[400] xl:text-xl xl:py-4">
                         View Courses
                     </button>
 
-                    <button class="py-2 px-8 border-[1px] border-lightBlue rounded-lg font-Rubik font-[400] xl:text-xl xl:py-4">Watch Video</button>
+                    <button
+                        class="py-2 px-8 border-[1px] border-lightBlue rounded-lg font-Rubik font-[400] xl:text-xl xl:py-4">Watch
+                        Video</button>
                 </div>
 
-                <div class="mt-5 flex gap-10 items-center">
+                <div class=" max-sm:mx-auto mt-5 flex gap-10 items-center">
 
                     <div class="flex">
                         <img class="w-[45px] rounded-full" src="./assets/asset 3.jpeg" alt="">
@@ -135,7 +188,7 @@
                         <p class="opacity-70">Happy Students</p>
                     </div>
                 </div>
-                
+
             </div>
 
         </div>
@@ -146,16 +199,25 @@
     <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
     <script>
         var typeData = new Typed(".role", {
-          strings: [
-            "Love",
-            "Babbar",
-          ],
-          loop: true,
-          typeSpeed: 100,
-          backSpeed: 80,
-          backDelay: 1000,
+            strings: [
+                "Love",
+                "Babbar",
+            ],
+            loop: true,
+            typeSpeed: 100,
+            backSpeed: 80,
+            backDelay: 1000,
         });
-      </script>
+    </script>
+
+    <script>
+        const toogleBtn = document.getElementById("toogleBtn");
+        const menu = document.getElementById("menu");
+
+        toogleBtn.addEventListener('click',()=>{
+            menu.classList.toggle("active");
+        })
+    </script>
 </body>
 
 </html>
